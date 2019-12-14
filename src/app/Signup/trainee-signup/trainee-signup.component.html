@@ -1,0 +1,97 @@
+<div class="image-back">
+  <div class="sign-image container-fluid">
+    <div class="row">
+      <div class="col-xs-11 mt-5 ml-5 mr-5 mb-5 mx-auto">
+        <div class="card mt-5">
+          <h1 class="mt-5 ml-5">Trainee Register</h1>
+          <form [formGroup]="signUpForm">
+            <div class="row mt-5 ml-5 mr-5">
+              <div class="alert-danger col-12 px-auto" *ngIf="signUpForm.get('traineeName').hasError('userNameTaken')">
+                Username already exists
+              </div>
+              <div class="col-md-6 col-xs-12">
+                <h6><label for="traineeName">Username</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Username" formControlName="traineeName"
+                  id="traineeName">
+                <div class="text-danger"
+                  *ngIf="traineeName.invalid && traineeName.errors.required && traineeName.touched">Username
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="traineeFirstName">First Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter First Name"
+                  formControlName="traineeFirstName" id="traineeFirstName">
+                <div class="text-danger"
+                  *ngIf="traineeFirstName.invalid && traineeFirstName.errors.required && traineeFirstName.touched">First
+                  Name is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6><label for="traineeLastName">Last Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="traineeLastName"
+                  id="traineeLastName">
+                <div class="text-danger"
+                  *ngIf="traineeLastName.invalid && traineeLastName.errors.required && traineeLastName.touched">Last
+                  Name
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="traineeContact">Contact</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Contact" formControlName="traineeContact"
+                  id="traineeContact" pattern="^[6789]\d{9}$">
+                <div class="text-danger"
+                  *ngIf="traineeContact.invalid && traineeContact.errors.required && traineeContact.touched">
+                  Contact is required</div>
+                <div class="text-danger" *ngIf="traineeContact.errors?.pattern">* Contact number should start
+                  with digits 6,7,8,9 and should be of 10 characters</div>
+
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6> <label for="email">Email-Id</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Email Id" formControlName="email" id="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <div class="text-danger" *ngIf="email.invalid && email.errors.required && email.touched">Email
+                  is required</div>
+              </div>
+              <div class="text-danger" *ngIf="email.errors?.pattern">*
+                Email should contain @ symbol</div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="password">Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+                  id="password">
+                <div class="text-danger" *ngIf="password.invalid && password.errors.required && password.touched">
+                  Password
+                  is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6> <label for="confirmPassword">Confirm Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Confirm Password"
+                  formControlName="confirmPassword" id="confirmPassword">
+                <div class="text-danger"
+                  *ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">Confirm
+                  the
+                  Password</div>
+                <div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password and
+                  Confirm
+                  Password do not match</div>
+              </div>
+            </div>
+            <div class="row mt-5 ml-5 mr-5 mb-5">
+              <div class="col-12">
+                <button type="button" (click)="this.submit(signUpForm.value)" class="btn button-color"
+                  [disabled]="!signUpForm.valid">Signup</button>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

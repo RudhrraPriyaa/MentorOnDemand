@@ -1,0 +1,45 @@
+<div class="container mb-4 pb-4 card mx-auto">
+    <h2>Skill Details</h2>
+    <div class="p-3 w-75 mx-auto alert alert-danger mb-5 mt-4" *ngIf="error!=''">{{error}} </div>
+    <form class="needs-validation" [formGroup]="editForm">
+
+        <div class="form-row">
+            <div class="form-group col-md-3 mb-3">
+                <label for="rating">Rating</label>
+                <input type="text" class="form-control" id="rating" formControlName="rating" placeholder="rating">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3 mb-3">
+                <label for="yearsOfExperience">Years Of Experience</label>
+                <input type="text" class="form-control" id="yearsOfExperience" formControlName="yearsOfExperience"
+                    placeholder="yearsOfExperience">
+            </div>
+
+            <div class="form-group col-md-3 mb-3">
+                <label for="trainingdelivered">Training Delivered</label>
+                <input type="text" class="form-control" id="trainingdelivered" formControlName="trainingdelivered"
+                    placeholder="trainingdelivered">
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-3 mb-3">
+                <label for="facilitiesOffered">Facilities Offered</label>
+                <input type="text" class="form-control" id="facilitiesOffered" formControlName="facilitiesOffered"
+                    placeholder="facilitiesOffered">
+            </div>
+        </div>
+
+        <div class="row mt-5 ml-5 mr-5 mb-5">
+            <div class="col-12">
+                <button type="submit" class="btn button-color text-light"
+                    (click)="submit(editForm.value)">Submit</button>
+                <button type="submit" class="btn button-color text-light" (click)="add(editForm.value)">Add
+                    Skill</button>
+            </div>
+        </div>
+
+    </form>
+</div>

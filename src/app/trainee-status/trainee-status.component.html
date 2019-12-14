@@ -1,0 +1,88 @@
+<div class="row left">
+    <div>
+        <div>
+            <button type="button" class="btn btn-success text-light" style="width:150px"
+                (click)="completedd()">Completed list</button>
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-danger text-light" style="width:150px" (click)="pending()">Pending
+                list</button>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="this.pstate">
+    <div class="col-xl-11 mt-5 ml-5 mr-5 mx-5">
+        <h2> Completed Trainings </h2>
+        <table class="table">
+            <tr>
+                <th class="ml-5 text-light">TRAINEE NAME </th>
+                <th class="ml-5 text-light">CONTACT</th>
+                <th class="ml-5 text-light">EMAIL</th>
+                <th class="ml-5 text-light">RESPONSE</th>
+            </tr>
+            <tr *ngFor="let user of trainees">
+                <td class="ml-5">{{user.traineeId.traineeName}}</td>
+                <td class="ml-5">{{user.traineeId.traineeContact}}</td>
+                <td class="ml-5">{{user.traineeId.email}}</td>
+                <td>
+                    <div *ngIf="user.proposalStatus=='COMPLETED'">
+                        <div>
+                            <span class="badge badge-pill badge-success">Training Completed</span><br>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row" *ngIf="this.state">
+    <div class="container-fluid mt-5 mx-5 mb-5">
+        <div class="row">
+            <div class="col-xl-11 mt-5 mx-8 mb-5">
+                <h2> Current Courses</h2>
+                <table class="table mt-2">
+                    <tr>
+                        <th class="text-light">TECHNOLGY</th>
+                        <th class="text-light">TRAINEE NAME </th>
+                        <th class="text-light">CONTACT</th>
+                        <th class="text-light">EMAIL</th>
+                        <th class="text-light">Pending Status</th>
+                    </tr>
+                    <tr *ngFor="let user of trainee">
+                        <td>{{user.skillId.skillName}}</td>
+                        <td>{{user.traineeId.traineeName}}</td>
+                        <td>{{user.traineeId.traineeContact}}</td>
+                        <td>{{user.traineeId.email}}</td>
+                        <td>
+
+                            <div *ngIf="user.proposalStatus=='PENDING'">
+                                <div>
+                                    <span class="badge badge-danger">Approval needed</span><br>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="badge-success"
+                                        (click)="accept(user.id)">Accept</button>
+
+                                    <button type="submit" class="badge-danger"
+                                        (click)="decline(user.id)">Decline</button>
+                                </div>
+                            </div>
+
+                            <div *ngIf="user.proposalStatus=='APPROVED' || user.proposalStatus=='APPROVEDPAID'">
+                                <div>
+                                    <span class="badge badge-primary">Inprogress</span><br>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="badge-success"
+                                        (click)="completed(user.id)">Completed</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>

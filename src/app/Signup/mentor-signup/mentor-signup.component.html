@@ -1,0 +1,119 @@
+<div class="image-back">
+  <div class="sign-image container-fluid">
+    <div class="row">
+      <div class="col-xs-11 mt-5 ml-5 mr-5 mb-5 mx-auto">
+        <div class="card mt-5">
+          <h1 class="mt-5 ml-5">Mentor Registeration</h1>
+          <form [formGroup]="signUpForm">
+            <div class="row mt-5 ml-5 mr-5">
+              <div class="alert-danger col-12 px-auto" *ngIf="signUpForm.get('mentorName').hasError('userNameTaken')">
+                Username already exists
+              </div>
+              <div class="col-md-6 col-xs-12">
+                <h6><label for="mentorName">Username</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Username" formControlName="mentorName"
+                  id="mentorName">
+                <div class="text-danger" *ngIf="mentorName.invalid && mentorName.errors.required && mentorName.touched">
+                  Username
+                  is required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="mentorFirstName">First Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="mentorFirstName"
+                  id="mentorFirstName">
+                <div class="text-danger"
+                  *ngIf="mentorFirstName.invalid && mentorFirstName.errors.required && mentorFirstName.touched">First
+                  Name is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6><label for="mentorLastName">Last Name</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="mentorLastName"
+                  id="mentorLastName">
+                <div class="text-danger"
+                  *ngIf="mentorLastName.invalid && mentorLastName.errors.required && mentorLastName.touched">Last
+                  Name
+                  is required</div>
+              </div>
+            </div>
+
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="yearsOfExperience">Years Of Experience</label></h6>
+                <input type="text" class="form-control" placeholder="Enter yearsOfExperience"
+                  formControlName="yearsOfExperience" id="yearsOfExperience" pattern="[0-9]+">
+                <div class="text-danger"
+                  *ngIf="yearsOfExperience.invalid && yearsOfExperience.errors.required && yearsOfExperience.touched">
+                  Years of Experience is required</div>
+                <div class="text-danger" *ngIf="yearsOfExperience.errors?.pattern">* Only numbers
+                </div>
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6> <label for="linkedinUrl">LinkedInUrl</label></h6>
+                <input type="text" class="form-control" placeholder="Enter linkedinUrl" formControlName="linkedinUrl"
+                  id="linkedinUrl">
+                <div class="text-danger"
+                  *ngIf="linkedinUrl.invalid && linkedinUrl.errors.required && linkedinUrl.touched">linkedInUrl is
+                  required</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="mentorContact">Contact</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Contact" formControlName="mentorContact"
+                  id="mentorContact" pattern="^[6789]\d{9}$">
+                <div class="text-danger"
+                  *ngIf="mentorContact.invalid && mentorContact.errors.required && mentorContact.touched">
+                  Contact is required</div>
+                <div class="text-danger" *ngIf="mentorContact.errors?.pattern">* Contact number should start
+                  with digits 6,7,8,9 and should be of 10 characters</div>
+
+              </div>
+              <div class="col-md-6 col-xs-12  mt-5">
+                <h6> <label for="email">Email-Id</label></h6>
+                <input type="text" class="form-control" placeholder="Enter Email Id" formControlName="email" id="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <div class="text-danger" *ngIf="email.invalid && email.errors.required && email.touched">Email
+                  is required</div>
+                <div class="text-danger" *ngIf="email.errors?.pattern">*
+                  Email should contain @ symbol</div>
+              </div>
+            </div>
+            <div class="row ml-5 mr-5">
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6><label for="password">Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"
+                  id="password">
+                <div class="text-danger" *ngIf="password.invalid && password.errors.required && password.touched">
+                  Password
+                  is required</div>
+              </div>
+              <div class="col-md-6 col-xs-12 mt-5">
+                <h6> <label for="confirmPassword">Confirm Password</label></h6>
+                <input type="password" class="form-control" placeholder="Enter Confirm Password"
+                  formControlName="confirmPassword" id="confirmPassword">
+                <div class="text-danger"
+                  *ngIf="confirmPassword.invalid && confirmPassword.errors.required && confirmPassword.touched">Confirm
+                  the
+                  Password</div>
+                <div class="text-danger" *ngIf="signUpForm.get('confirmPassword').hasError('nomatch')">Password and
+                  Confirm
+                  Password do not match</div>
+              </div>
+            </div>
+            <div class="row mt-5 ml-5 mr-5 mb-5">
+              <div class="col-12">
+                <button type="button" (click)="this.submit(signUpForm.value)" class="btn button-dark"
+                  [disabled]="!signUpForm.valid">Signup</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn button-color text-light"
+                  (click)="this.submitToAdd(signUpForm.value)">Add Skills</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

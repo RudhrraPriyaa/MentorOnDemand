@@ -1,0 +1,11 @@
+.left{
+    padding-left: 500px;
+    padding-right: 200px;
+    padding-top:70px;
+}
+table{
+    border:solid;
+}
+th{
+    background-color: rgb(171, 94, 131);
+}

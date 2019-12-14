@@ -1,0 +1,54 @@
+<div>
+  <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_top">
+  <h2>
+      <i class="material-icons md-36"> thumb_up </i> ThinkSitute
+    </h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent1">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+      <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active" *ngIf="!this.authService.loggedIn">
+                <a class="nav-link" routerLink="search/">Home</a>
+            </li>
+            <li class="nav-item active" *ngIf="this.authService.loggedIn">
+                <i class="material-icons other_icon">person </i> {{this.authService.loggedInUser.username}}
+            </li>
+        <li class="nav-item active" *ngIf="!this.authService.loggedIn"  >
+                  <a class="nav-link" routerLink="login/">Login</a>
+              </li>
+              <li class="nav-item active" *ngIf="this.authService.loggedIn && this.authService.isMentor" >
+                <a class="nav-link" routerLink="trainee-status/">Status</a>
+            </li>
+            <li class="nav-item active" *ngIf="this.authService.loggedIn && !this.authService.isMentor" >
+              <a class="nav-link" routerLink="traineeProgress/">Progress</a>
+          </li>
+              <li class="nav-item active" *ngIf="!this.authService.loggedIn" >
+                    <a class="nav-link" routerLink="usignup/">User-Register</a>
+                </li>
+                <li class="nav-item active" *ngIf="!this.authService.loggedIn" >
+                        <a class="nav-link" routerLink="signup/">Mentor-Register</a>
+                    </li>
+                    <li class="nav-item active" *ngIf="this.authService.loggedIn"  (click)="this.authService.logout()">
+                            <a class="nav-link" routerLink="search/">Logout</a>
+                        </li>
+                        
+              </ul>      
+    </div>
+  </nav> 
+
+  
+      <!-- <app-menu></app-menu> -->
+      <!-- <app-cart></app-cart> -->
+      <!-- <app-item-edit></app-item-edit> -->
+      <!-- <app-signup></app-signup> -->
+      <!-- <app-login></app-login> -->
+  <router-outlet></router-outlet>
+  
+  
+  
+  <nav class="navbar navbar-expand-sm navbar-dark text-light navbar_bottom ">
+      <!-- <h4>Copyright 2019</h4> -->
+      <h4>Learning is a treasure that will follow its owner everywhere!!! </h4>
+  </nav>
+  </div>

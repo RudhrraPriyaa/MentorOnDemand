@@ -1,0 +1,64 @@
+.search-bar {
+	background-image:
+		url("https://images.unsplash.com/photo-1548453282-29d422a7025a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+}
+.button-color{
+	background-color: rgb(171, 94, 131);
+	color: rgb(171, 94, 131); ;
+}
+.bad {
+	background-color: rgb(18, 203, 216);
+	vertical-align: super;
+}
+
+.truck {
+	color: blue;
+}
+
+.color {
+	background-color: palevioletred;
+}
+
+.colors {
+	background-color: rgb(248, 252, 54);
+}
+
+.material-icons.md-36 {
+	font-size: 35px;
+	line-height: 1.5;
+	vertical-align: middle;
+}
+
+.delete {
+	color: blue;
+}
+
+.material-icons.other_icon {
+	line-height: 1.75;
+	vertical-align: middle;
+}
+
+.navbar_top {
+	background-color: #fe5711;
+}
+
+.navbar_bottom {
+	background-color:  #fe5711;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
+
+.badge-primary.delivery_badge {
+	vertical-align: super;
+}
+
+.delete-icon {
+	text-align: right;
+}
+
+.signup-btn {
+	background-color:  #fe5711;
+	color: white;
+}
+

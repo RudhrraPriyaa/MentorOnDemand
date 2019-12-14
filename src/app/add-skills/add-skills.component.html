@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-4" *ngFor="let sk of technologies">
+    <div class="card mx-auto">
+      <div class="card-body">
+        <img class="card-img-top" src={{sk.image}} style="widows: 100px;height:200px">
+        <b>Skill Name : </b>{{sk.skillName}}<br>
+        <b>Table Of Contents : </b>{{sk.tableOfContents}}<br>
+        <b>Prerequites : </b>{{sk.prerequites}}<br>
+        <b>Course Duration : </b>{{sk.duration}}<br>
+      </div>
+      <button type="button" class="btn button-color text-light" (click)="submit(sk.skillName)">Add Skill</button>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>

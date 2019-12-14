@@ -1,0 +1,25 @@
+.button-color{
+    background-color: rgb(171, 94, 131);
+}
+.button-dark{
+    background-color: rgb(121, 171, 94);
+}
+.inventory-body {
+	margin: 0px 0px;
+    color: white;
+	height:auto;
+	height:250%;
+	position:fixed;
+	/* background-image: url('https://images.unsplash.com/photo-1490641815614-b45106d6dd04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'); */
+	background-image: url('https://i.pinimg.com/originals/f6/15/74/f615740d8ec75ad36e322ecd9da8b129.gif');
+}
+h1 {
+
+    color:black;}
+    h6 {
+    
+        color:black;}
+        .wrapper{
+            display:flex;
+            flex-direction: column;
+        }
